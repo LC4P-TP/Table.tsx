@@ -1,6 +1,7 @@
 .main {
   grid-area: main;
+  display: flex;
+  justify-content: center;
   background-image: url("/src/assets/background.png");
   background-size: cover;
-  color: var(--color-border);
 }
