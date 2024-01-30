@@ -1,10 +1,10 @@
 import "./table.scss";
 
-export const THead = ({ headerNames }: { headerNames: string[] }) => {
+export const THead = ({ names }: { names: string[] }) => {
   return (
     <thead>
       <tr>
-        {headerNames.map((name) => (
+        {names.map((name) => (
           <th key={name}>{name}</th>
         ))}
       </tr>

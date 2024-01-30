@@ -1,3 +1,6 @@
+import "./td.scss";
+import link from "../../../assets/link.png";
+
 const testService = {
   getFunction: (value: string) => {
     alert(value);
@@ -16,12 +19,18 @@ const getFile = (value: string) => {
   };
 };
 
-export const TdText = ({ key, value }: { key: string; value: string }) => {
+export const TdFile = ({ key, value }: { key: string; value: string }) => {
   return (
-    <td key={key}>
-      <button type="button" onClick={() => getFile(value)}>
-        File link
-      </button>
+    <td key={`${key}${value}`}>
+      <div className="boxWrapper">
+        <button
+          type="button"
+          className="tableImageBatton"
+          onClick={() => getFile(value)}
+        >
+          <img src={link} alt="imageLink" className="tableImageBatton" />
+        </button>
+      </div>
     </td>
   );
 };

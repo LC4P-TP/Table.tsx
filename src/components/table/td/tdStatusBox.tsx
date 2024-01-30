@@ -1,20 +1,28 @@
-const StatusBox = ({ status }: { status: number }) => {
-  switch (status) {
-    case 0:
-      return <div id="0" className="green" />;
-    case 1:
-      return <div id="1" className="yelow" />;
-    case 2:
-      return <div id="2" className="red" />;
-    default:
-      break;
-  }
+import "./td.scss";
+import { StatusType } from "../types";
+
+const StatusBox = ({ status }: { status: StatusType }) => {
+  const statusMap = {
+    0: <div id="0" className="greenStatus" />,
+    1: <div id="1" className="yelouStatus" />,
+    2: <div id="2" className="redStatus" />,
+  };
+
+  return statusMap[status];
 };
 
-export const TdText = ({ key, value }: { key: string; value: number }) => {
+export const TdStatusBox = ({
+  key,
+  value,
+}: {
+  key: string;
+  value: StatusType;
+}) => {
   return (
-    <td key={key}>
-      <StatusBox status={value} />
+    <td key={`${key}${value}`}>
+      <div className="boxWrapper">
+        <StatusBox status={value} />
+      </div>
     </td>
   );
 };

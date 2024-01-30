@@ -1,0 +1,65 @@
+.boxWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+  .checkIcon,
+  .unCheckIcon {
+    display: flex;
+    justify-content: center;
+    width: var(--size-table-img);
+    height: var(--size-table-img);
+    background-color: var(--color-title-1);
+  }
+
+  .checkIcon {
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      width: 55%;
+      height: 35%;
+      margin-top: 20%;
+      border-left: solid 3px var(--color-title-2);
+      border-bottom: solid 3px var(--color-title-2);
+      transform: rotate(-48deg);
+    }
+
+    &:hover {
+      &::before {
+        border-color: var(--color-text);
+      }
+    }
+  }
+
+  .greenStatus,
+  .yelouStatus,
+  .redStatus {
+    width: var(--size-table-img);
+    height: var(--size-table-img);
+    margin: 0 10px;
+    border-radius: 100%;
+    border: 2px solid var(--color-border);
+  }
+
+  .greenStatus {
+    background-color: var(--color-title-1);
+  }
+
+  .yelouStatus {
+    background-color: var(--color-yellow);
+  }
+
+  .redStatus {
+    background-color: var(--color-error);
+  }
+
+  .tableImageBatton {
+    cursor: pointer;
+    width: var(--size-table-img);
+    height: var(--size-table-img);
+    background-color: transparent;
+  }
+}

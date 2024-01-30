@@ -1,11 +1,15 @@
-export const TdText = ({ key, value }: { key: string; value: boolean }) => {
+import "./td.scss";
+
+export const TdCheckBox = ({ key, value }: { key: string; value: boolean }) => {
   return (
-    <td key={key}>
-      {value ? (
-        <div id="true" className="checkBoxTrue" />
-      ) : (
-        <div id="false" className="checkBoxFalse" />
-      )}
+    <td key={`${key}${value}`}>
+      <div className="boxWrapper">
+        {value ? (
+          <div id="true" className="checkIcon" />
+        ) : (
+          <div id="false" className="unCheckIcon" />
+        )}
+      </div>
     </td>
   );
 };
