@@ -1,10 +1,8 @@
-<type>[optional scope]: <title>
+<type>[optional scope]: <description>
 
-[Task]: <task_id>
-<longer description>
+[optional body]
 
-[Notes]
-<notes>
+[optional footer(s)]
 
 # build, ci, docs, feat, fix, perf, refactor, style, test - <type>
 
