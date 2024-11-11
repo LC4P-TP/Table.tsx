@@ -1,5 +1,5 @@
 import "./td.scss";
 
-export const TdText = ({ key, value }: { key: string; value: string }) => {
-  return <td key={`${key}${value}`}>{value}</td>;
+export const TdText = ({ value }: { value: string }) => {
+  return <td>{value}</td>;
 };

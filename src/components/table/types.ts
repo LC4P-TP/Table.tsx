@@ -7,14 +7,7 @@ export interface TableEntries {
   type: CellType;
 }
 
-export interface Data {
-  row1: string;
-  row2: boolean;
-  row3: string;
-  row4: number;
-}
-
-export interface IdData extends Data {
+export interface IdData {
   id: number;
 }
 

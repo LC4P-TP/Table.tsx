@@ -11,15 +11,9 @@ const StatusBox = ({ status }: { status: StatusType }) => {
   return statusMap[status];
 };
 
-export const TdStatusBox = ({
-  key,
-  value,
-}: {
-  key: string;
-  value: StatusType;
-}) => {
+export const TdStatusBox = ({ value }: { value: StatusType }) => {
   return (
-    <td key={`${key}${value}`}>
+    <td>
       <div className="boxWrapper">
         <StatusBox status={value} />
       </div>

@@ -1,11 +1,11 @@
 import "./table.scss";
-import { Data, IdData, CellType, StatusType } from "./types";
+import { IdData, CellType, StatusType } from "./types";
 import { TdText } from "./td/tdText";
 import { TdCheckBox } from "./td/tdCheckBox";
 import { TdFile } from "./td/tdFile";
 import { TdStatusBox } from "./td/tdStatusBox";
 
-const RenderCells = ({ obj, types }: { obj: Data; types: CellType[] }) => {
+const RenderCells = ({ obj, types }: { obj: object; types: CellType[] }) => {
   const cells = Object.entries(obj).map(([key, value], index) => {
     const mapKey = types[index];
     const tdMap = {

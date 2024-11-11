@@ -19,9 +19,9 @@ const getFile = (value: string) => {
   };
 };
 
-export const TdFile = ({ key, value }: { key: string; value: string }) => {
+export const TdFile = ({ value }: { value: string }) => {
   return (
-    <td key={`${key}${value}`}>
+    <td>
       <div className="boxWrapper">
         <button
           type="button"

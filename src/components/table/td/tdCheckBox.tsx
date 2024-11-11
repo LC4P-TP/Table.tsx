@@ -1,8 +1,8 @@
 import "./td.scss";
 
-export const TdCheckBox = ({ key, value }: { key: string; value: boolean }) => {
+export const TdCheckBox = ({ value }: {value: boolean }) => {
   return (
-    <td key={`${key}${value}`}>
+    <td>
       <div className="boxWrapper">
         {value ? (
           <div id="true" className="checkIcon" />
