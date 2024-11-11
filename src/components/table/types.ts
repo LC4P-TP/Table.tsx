@@ -3,8 +3,8 @@ export type StatusType = 0 | 1 | 2 ;
 export type CellType = "text" | "checkBox" | "fileURL" | "statusBox";
 
 export interface TableEntries {
-  name: string;
-  type: CellType;
+  names: string[];
+  types: CellType[];
 }
 
 export interface IdData {
@@ -13,7 +13,7 @@ export interface IdData {
 
 export type TableProps = {
   tabeleName: string;
-  tableEntries: TableEntries[];
+  tableEntries: TableEntries;
   data: IdData[];
 };
 

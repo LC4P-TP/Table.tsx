@@ -4,13 +4,10 @@ import { CellType } from "../components/table/types";
 
 function TestPage() {
   const tabeleName = "Test page";
-  const tableEntries: { name: string; type: CellType }[] = [
-    { name: "text", type: "text" },
-    { name: "text 2", type: "text" },
-    { name: "checkbox", type: "checkBox" },
-    { name: "fileURL", type: "fileURL" },
-    { name: "statusBox", type: "statusBox" },
-  ];
+  const tableEntries: { names: string[]; types: CellType[] } = {
+    names: ["text", "text 2", "checkbox", "fileURL", "statusBox"],
+    types: ["text", "text", "checkBox", "fileURL", "statusBox"],
+  };
 
   const testData = [
     { id: 1, row1: "q1", row2: "11", row3: true, row4: "1", row5: 1 },
@@ -18,7 +15,7 @@ function TestPage() {
     {
       id: 3,
       row1: "e3",
-      row2: "Goose - Hydra",
+      row2: "Goose-Hydra",
       row3: true,
       row4: "3",
       row5: 2,
