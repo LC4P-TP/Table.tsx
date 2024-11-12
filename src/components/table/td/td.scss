@@ -28,6 +28,7 @@
     }
 
     &:hover {
+      background-color: var(--color-title-hover);
       &::before {
         border-color: var(--color-text);
       }
@@ -58,8 +59,20 @@
 
   .tableImageBatton {
     cursor: pointer;
+    align-items: center;
+    justify-items: center;
     width: var(--size-table-img);
     height: var(--size-table-img);
     background-color: transparent;
+
+    &:hover{
+      border: 2px solid var(--color-rauschert-orange);
+      border-radius: 100%;
+    }
+
+    img {
+      width: 25px;
+      height: 25px;
+    }
   }
 }

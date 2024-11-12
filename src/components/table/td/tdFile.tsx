@@ -28,7 +28,7 @@ export const TdFile = ({ value }: { value: string }) => {
           className="tableImageBatton"
           onClick={() => getFile(value)}
         >
-          <img src={link} alt="imageLink" className="tableImageBatton" />
+          <img src={link} alt="imageLink" />
         </button>
       </div>
     </td>
