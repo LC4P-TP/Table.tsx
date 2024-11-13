@@ -3,12 +3,14 @@ import Header from "./parts/header/header";
 import Footer from "./parts/footer/footer";
 
 import TestPage from "./Pages/testPage";
+import RequireAuth from "./auth/RequireAuth";
 
 function App() {
+  const ProtectedDashboard = RequireAuth(TestPage);
   return (
     <div className="App">
       <Header />
-      <TestPage />
+      <ProtectedDashboard  />
       <Footer />
     </div>
   );

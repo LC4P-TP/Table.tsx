@@ -1,9 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { testData } from "../testData/testData";
-import { getData, TestData } from "../mockAPI/api";
+import { getData, TestData } from "../../mockAPI/api";
 
 interface TestState {
-  data: TestData[]
+  data: TestData[];
 }
 
 const initialState: TestState = {
@@ -17,18 +16,14 @@ export const fetchData = createAsyncThunk("testData/fetchData", async () =>
 export const testSlice = createSlice({
   name: "testSlice",
   initialState,
-  reducers: {
-    setTestData: (state) => {
-      state.data = testData;
-    },
-  },
+  reducers: {},
   extraReducers(builder) {
     builder.addCase(fetchData.fulfilled, (state, actions) => {
       state.data = actions.payload;
+    }).addCase(fetchData.rejected, (state, actions)=> {
+      console.debug(actions.error.message);
     });
   },
 });
-
-export const { setTestData } = testSlice.actions;
 
 export default testSlice.reducer;
