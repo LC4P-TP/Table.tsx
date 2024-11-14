@@ -21,6 +21,6 @@ export function getData() {
       } else {
         reject(new Error("somehting went wrong"));
       }
-    }, 1000);
+    }, 50);
   });
 }

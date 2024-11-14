@@ -1,6 +1,6 @@
 import { userData } from "../../../tests/testData/testData";
 
-interface Access {
+export interface Access {
   id: number;
   name: string | null;
   material: number;
@@ -24,11 +24,11 @@ interface Response {
   surname: string;
   isActivated: boolean;
   token: string;
-  access: Access;
   id: string;
   notificationToken: string;
   departmentId: number;
   department: string;
+  access: Access;
 }
 
 export interface UserApiResponse {
@@ -38,19 +38,19 @@ export interface UserApiResponse {
   statusCode: number;
 }
 
-
-const _getUserData = () => {
+const _getUserData = (): UserApiResponse => {
   return userData;
-}
+};
 
-export function getUserData(){
+export function getUserData() {
   return new Promise<UserApiResponse>((resolve, reject) => {
     setTimeout(() => {
-      if (userData.isSuccess) {
-        resolve(_getUserData());
+      const userData = _getUserData();
+      if (userData.statusCode === 200) {
+        resolve(userData);
       } else {
         reject(new Error("somehting went wrong"));
       }
-    }, 500);
+    }, 1000);
   });
 }

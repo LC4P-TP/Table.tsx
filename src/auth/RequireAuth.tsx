@@ -1,23 +1,30 @@
 import React, { ComponentType, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
-import { registerUser } from "../redux/slices/UserSlice/userSlice";
+import { loginUser } from "../redux/slices/UserSlice/userSlice";
 
 import "../Pages/main.scss";
-
 
 function RequireAuth<P extends object>(WrappedComponent: ComponentType<P>) {
   const AuthComponent: React.FC<P> = (props) => {
     const dispatch = useAppDispatch();
-    const data = useAppSelector((state) => state.userReducer);
+    const { success, loading } = useAppSelector((state) => state.userReducer);
 
     useEffect(() => {
-        dispatch(registerUser());
+      dispatch(loginUser());
     }, [dispatch]);
 
-    if (!data.isSuccess) {
+    if (loading) {
       return (
         <div className="main">
-          <h2>Please log in</h2>
+          <h2>Loading...</h2>
+        </div>
+      );
+    }
+
+    if (!success) {
+      return (
+        <div className="main">
+          <h2>Please login</h2>
         </div>
       );
     }
