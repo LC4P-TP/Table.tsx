@@ -1,4 +1,5 @@
 import { testData } from "../../../tests/testData/testData";
+import { GeneralReponse } from "../slices/GeneralSliceTypes/generalSliceTypes";
 
 export interface TestData {
   id: number;
@@ -14,10 +15,11 @@ const _getData = () => {
 };
 
 export function getData() {
-  return new Promise<TestData[]>((resolve, reject) => {
+  return new Promise<GeneralReponse<TestData>>((resolve, reject) => {
     setTimeout(() => {
-      if (Math.random() > 0.5) {
-        resolve(_getData());
+      const testData = _getData();
+      if (testData.statusCode === 200) {
+        resolve(testData);
       } else {
         reject(new Error("somehting went wrong"));
       }

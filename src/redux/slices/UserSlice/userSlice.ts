@@ -1,14 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import {
-  Access,
-  getUserData,
-  UserApiResponse,
-} from "../../mockAPI/loginUserAPI";
-
-interface error {
-  status: number;
-  message: string;
-}
+import { Access, getUserData, UserApiResponse } from "../../mockAPI/loginUserAPI";
+import { error } from "../GeneralSliceTypes/generalSliceTypes";
+import { SessionStorageService, TOKEN_KEY, USER_KEY } from "../../mockAPI/SessionStorageService";
 
 export interface UserState {
   success: boolean;
@@ -49,7 +42,7 @@ const initialUserState: UserState = {
   },
 };
 
-// const userState = SessionStorageService.get(USER_KEY) || initialUserState;
+const userState = SessionStorageService.get(USER_KEY) || initialUserState;
 
 export const loginUser = createAsyncThunk("login", async () => getUserData());
 
@@ -73,24 +66,33 @@ const generateState = (userApiResponse: UserApiResponse): UserState => {
 
 const userSlice = createSlice({
   name: "user",
-  initialState: initialUserState,
-  reducers: {},
+  initialState: userState,
+  reducers: {
+    testLogin: (state) => {
+      state.success = true;
+    },
+    logout: () => {
+      SessionStorageService.remove(USER_KEY);
+      return initialUserState;
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(loginUser.pending, (state) => {
         state.loading = true;
       })
-      .addCase(
-        loginUser.fulfilled,
-        (state, action: PayloadAction<UserApiResponse>) => {
-          const newState = generateState(action.payload);
-          Object.assign(state, newState);
-        }
-      )
+      .addCase(loginUser.fulfilled, (state, action: PayloadAction<UserApiResponse>) => {
+        const newState = generateState(action.payload);
+        Object.assign(state, newState);
+
+        SessionStorageService.set(TOKEN_KEY, action.payload.response.token);
+        SessionStorageService.set(USER_KEY, newState);
+      })
       .addCase(loginUser.rejected, (state) => {
         state.loading = false;
       });
   },
 });
 
+export const { testLogin, logout } = userSlice.actions;
 export default userSlice.reducer;

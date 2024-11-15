@@ -65,14 +65,14 @@
     height: var(--size-table-img);
     background-color: transparent;
 
-    &:hover{
+    &:hover {
       border: 2px solid var(--color-rauschert-orange);
       border-radius: 100%;
     }
 
     img {
-      width: 25px;
-      height: 25px;
+      width: calc(var(--size-table-img) - 12px);
+      height: calc(var(--size-table-img) - 12px);
     }
   }
 }

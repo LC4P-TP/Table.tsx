@@ -1,35 +1,21 @@
-import React, { ComponentType, useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../redux/hooks";
-import { loginUser } from "../redux/slices/UserSlice/userSlice";
+import React, { ComponentType } from "react";
+import { useAppSelector } from "../redux/hooks";
+import { Navigate, useLocation } from "react-router-dom";
 
 import "../Pages/main.scss";
 
-function RequireAuth<P extends object>(WrappedComponent: ComponentType<P>) {
+function RequireAuth<P extends object>(Component: ComponentType<P>) {
   const AuthComponent: React.FC<P> = (props) => {
-    const dispatch = useAppDispatch();
-    const { success, loading } = useAppSelector((state) => state.userReducer);
+    const location = useLocation();
+    const path = useLocation().pathname;
 
-    useEffect(() => {
-      dispatch(loginUser());
-    }, [dispatch]);
-
-    if (loading) {
-      return (
-        <div className="main">
-          <h2>Loading...</h2>
-        </div>
-      );
-    }
+    const { success } = useAppSelector((state) => state.userReducer);
 
     if (!success) {
-      return (
-        <div className="main">
-          <h2>Please login</h2>
-        </div>
-      );
+      return <Navigate to="/login" state={{ from: location }} replace />;
     }
 
-    return <WrappedComponent {...props} />;
+    return <Component {...props} />;
   };
 
   return AuthComponent;

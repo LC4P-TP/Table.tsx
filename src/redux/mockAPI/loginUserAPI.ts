@@ -51,6 +51,6 @@ export function getUserData() {
       } else {
         reject(new Error("somehting went wrong"));
       }
-    }, 1000);
+    }, 50);
   });
 }

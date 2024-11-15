@@ -1,23 +1,19 @@
-.main {
-  grid-area: main;
-  display: flex;
-  justify-content: center;
-  background-image: url("/src/assets/background.png");
-  background-size: cover;
-}
-
-.home {
+.loginBox {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  padding: 15px;
 
-  font-size: 30px;
+  input {
+    margin: 5px 0;
+    border: 1px solid var(--color-title-1);
+    background-color: transparent;
+  }
 
   button {
     cursor: pointer;
     padding: 5px;
-    padding-bottom: 10px;
     background-color: var(--color-title-1);
     color: var(--color-text);
 

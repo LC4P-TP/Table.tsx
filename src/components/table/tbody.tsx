@@ -1,13 +1,13 @@
 import "./table.scss";
-import { IdData, CellType, StatusType } from "./types";
+import { StatusType, TableEntries } from "./types";
 import { TdText } from "./td/tdText";
 import { TdCheckBox } from "./td/tdCheckBox";
 import { TdFile } from "./td/tdFile";
 import { TdStatusBox } from "./td/tdStatusBox";
 
-const RenderCells = ({ obj, types }: { obj: object; types: CellType[] }) => {
+const RenderCells = ({ obj, tableEntries }: { obj: object; tableEntries: TableEntries[] }) => {
   const cells = Object.entries(obj).map(([key, value], index) => {
-    const mapKey = types[index];
+    const mapKey = tableEntries[index].cellType;
     const tdMap = {
       text: <TdText key={key} value={value as string} />,
       checkBox: <TdCheckBox key={key} value={value as boolean} />,
@@ -21,12 +21,12 @@ const RenderCells = ({ obj, types }: { obj: object; types: CellType[] }) => {
   return cells;
 };
 
-export const TBody = ({
+export const TBody = <T extends { id: number }>({
   data,
-  types,
+  tableEntries,
 }: {
-  data: IdData[];
-  types: CellType[];
+  data: T[];
+  tableEntries: TableEntries[];
 }) => {
   return (
     <tbody>
@@ -34,7 +34,7 @@ export const TBody = ({
         const { id, ...obj } = row;
         return (
           <tr key={id}>
-            <RenderCells obj={obj} types={types} />
+            <RenderCells obj={obj} tableEntries={tableEntries} />
           </tr>
         );
       })}

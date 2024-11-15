@@ -23,11 +23,7 @@ export const TdFile = ({ value }: { value: string }) => {
   return (
     <td>
       <div className="boxWrapper">
-        <button
-          type="button"
-          className="tableImageBatton"
-          onClick={() => getFile(value)}
-        >
+        <button type="button" className="tableImageBatton" onClick={() => getFile(value)}>
           <img src={link} alt="imageLink" />
         </button>
       </div>

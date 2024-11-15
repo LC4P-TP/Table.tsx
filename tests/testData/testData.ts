@@ -1,17 +1,3 @@
-export const testData = [
-  { id: 1, row1: "q1", row2: "11", row3: true, row4: "1", row5: 1 },
-  { id: 2, row1: "w2", row2: "Beavers", row3: false, row4: "2", row5: 0 },
-  {
-    id: 3,
-    row1: "e3",
-    row2: "Goose-Hydra",
-    row3: true,
-    row4: "3",
-    row5: 2,
-  },
-  { id: 4, row1: "r4", row2: "909", row3: true, row4: "4", row5: 1 },
-];
-
 export const userData = {
   isSuccess: true,
   response: {
@@ -43,6 +29,29 @@ export const userData = {
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibmFtZSIsIm5hbWVpZCI6IjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMSIsImp0aSI6IjIyNzViYzNlLWFiNTUtNDZmMC04ODRkLTlmOTFjMjFjNGQxNCIsIkFjY2Vzc0tleSI6Ik1pY3Jvc29mdC5JZGVudGl0eU1vZGVsLlRva2Vucy5TeW1tZXRyaWNTZWN1cml0eUtleSwgS2V5SWQ6ICcnLCBJbnRlcm5hbElkOiAnaEJ6V3A3UkR4czZ3dk5aY3g0QWtDeFJmYjZPanFhY0VBODV3djRjemV1bycuIiwiZXhwIjoxNzMxNTE3NzM2LCJpc3MiOiJlZWVlZWVlZSIsImF1ZCI6ImVlZWVlZWVlIn0.fAVx0elrVozzttCBStydjMnfHdnPwBXQIzVdHiAqGFs",
     departmentId: 1,
     department: "Spectrographika",
+  },
+  error: null,
+  statusCode: 200,
+};
+
+export const testData = {
+  isSuccess: true,
+  response: {
+    array: [
+      { id: 1, row1: "q1", row2: "11", row3: true, row4: "1", row5: 1 },
+      { id: 2, row1: "w2", row2: "Beavers", row3: false, row4: "2", row5: 0 },
+      {
+        id: 3,
+        row1: "e3",
+        row2: "Goose-Hydra",
+        row3: true,
+        row4: "3",
+        row5: 2,
+      },
+      { id: 4, row1: "r4", row2: "909", row3: true, row4: "4", row5: 1 },
+    ],
+    currentPage: 1,
+    pageCount: 1,
   },
   error: null,
   statusCode: 200,
