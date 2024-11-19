@@ -17,7 +17,7 @@ function Login() {
     if (success) {
       navigate(from, { replace: true });
     }
-  }, [navigate, success, from]);
+  }, [navigate, success]);
 
   const login = () => {
     dispatch(loginUser());
