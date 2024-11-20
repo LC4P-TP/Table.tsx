@@ -12,16 +12,34 @@
   --color-yellow: rgb(217, 217, 28);
   --color-border: rgba(0, 0, 0, 0.6);
 
+  --size-heade-height: 50px;
+  --size-footer-height: 30px;
   --size-table-img: 35px;
 }
 
 .App {
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 50px auto 30px;
+  grid-template-rows: var(--size-heade-height) auto var(--size-footer-height);
   grid-template-areas: "head" "main" "foot";
   // gap: 10px; // indents between elements
 
   width: 100vw;
   height: 100vh;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+.mainButtonStyles {
+  cursor: pointer;
+  background-color: var(--color-title-1);
+  color: var(--color-title-2);
+
+  &:hover {
+    background-color: var(--color-title-hover);
+    color: var(--color-text);
+  }
 }

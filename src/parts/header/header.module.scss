@@ -1,0 +1,31 @@
+.header {
+  grid-area: head;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: auto;
+
+  background-color: var(--color-title-1);
+  color: var(--color-title-2);
+
+  z-index: 10;
+
+  .left,
+  .middle,
+  .right {
+    display: flex;
+    align-items: center;
+    height: var(--size-heade-height);
+  }
+
+  .left {
+    justify-content: left;
+  }
+
+  .middle {
+    justify-content: center;
+  }
+
+  .right {
+    justify-content: right;
+  }
+}

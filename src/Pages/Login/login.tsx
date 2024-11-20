@@ -30,7 +30,7 @@ function Login() {
 
         <input type="password" name="password" />
 
-        <button type="submit" onClick={login}>
+        <button type="submit" className="mainButtonStyles" onClick={login}>
           Submit
         </button>
       </div>

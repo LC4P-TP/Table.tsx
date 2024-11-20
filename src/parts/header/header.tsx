@@ -1,9 +1,17 @@
-import "./header.scss";
+import { useAppSelector } from "../../redux/hooks";
+import Sidebar from "../../components/sidebar/sidebar";
+import styles from "./header.module.scss";
 
 function Header() {
+  const { success } = useAppSelector((state) => state.userReducer);
+
   return (
-    <div className="header">
-      <h3>Head</h3>
+    <div className={styles.header}>
+      <div className={styles.left}>{success ? <Sidebar /> : null}</div>
+      <div className={styles.middle}>
+        <h3>T i t l e</h3>
+      </div>
+      <div className={styles.right}>Setings</div>
     </div>
   );
 }

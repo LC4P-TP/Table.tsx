@@ -8,7 +8,7 @@ import { TestData } from "../redux/mockAPI/api";
 function TestPage() {
   const dispatch = useAppDispatch();
 
-  const testData = useAppSelector((state) => state.testReducer.data);
+  const { data } = useAppSelector((state) => state.testReducer);
 
   const tableName = "Test page";
 
@@ -18,7 +18,7 @@ function TestPage() {
 
   return (
     <div className="main">
-      <Table tableName={tableName} data={testData as TestData[]} />
+      <Table tableName={tableName} data={data as TestData[]} />
     </div>
   );
 }

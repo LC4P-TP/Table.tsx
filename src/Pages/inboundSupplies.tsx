@@ -7,7 +7,7 @@ import { fetchData, TableDataInboundSupplies } from "../redux/slices/InboundSupp
 function InboundSupplies() {
   const dispatch = useAppDispatch();
 
-  const data = useAppSelector((state) => state.InboundSuppliesReducer.data);
+  const { data } = useAppSelector((state) => state.InboundSuppliesReducer);
 
   const tableName = "Inbound supplies";
 

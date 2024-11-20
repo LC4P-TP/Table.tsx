@@ -2,7 +2,7 @@ import React, { ComponentType } from "react";
 import { useAppSelector } from "../redux/hooks";
 import "../Pages/main.scss";
 
-function RequireAccess<P extends object>(accesName: string, Component: ComponentType<P>) {
+export function RequireAccessToShow<P extends object>(accesName: string, Component: ComponentType<P>) {
   const AuthComponent = (props: P): React.ReactElement | null => {
     const { access } = useAppSelector((state) => state.userReducer);
 
@@ -16,4 +16,7 @@ function RequireAccess<P extends object>(accesName: string, Component: Component
   return AuthComponent;
 }
 
-export default RequireAccess;
+export const accessToWrite = (accesName: string) => {
+  const { access } = useAppSelector((state) => state.userReducer);
+  return access[accesName] === 15;
+};
