@@ -16,7 +16,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
 
-        <Route element={RequireAuth(Outlet)({})}>
+        <Route element={<RequireAuth Component={Outlet} />}>
           <Route path="/" element={<Home />} />
           <Route path="/TestPage" element={<TestPage />} />
 

@@ -56,9 +56,9 @@ const generateState = (userApiResponse: UserApiResponse): UserState => ({
   access: userApiResponse.response.access,
   error: !userApiResponse.isSuccess
     ? {
-      status: userApiResponse.statusCode,
-      message: userApiResponse.error || "Unknown error",
-    }
+        status: userApiResponse.statusCode,
+        message: userApiResponse.error || "Unknown error",
+      }
     : null,
 });
 

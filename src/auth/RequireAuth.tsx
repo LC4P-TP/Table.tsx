@@ -1,39 +1,32 @@
 import React, { ComponentType, useEffect } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../redux/store";
-import "../Pages/main.scss";
 import { logout } from "../redux/slices/UserSlice/userSlice";
 
-function RequireAuth<P extends object>(Component: ComponentType<P>) {
-  function AuthComponent(props: P): React.ReactElement | null {
-    const dispatch = useAppDispatch();
-    const location = useLocation();
+function RequireAuth({ Component }: { Component: ComponentType }): React.ReactElement | null {
+  const dispatch = useAppDispatch();
+  const location = useLocation();
+  const { success } = useAppSelector((state) => state.user);
 
-    const { success } = useAppSelector((state) => state.user);
+  useEffect(() => {
+    if (success) {
+      const timerDuration = 30 * 60 * 1000;
 
-    useEffect(() => {
-      if (success) {
-        const timerDuration = 30 * 60 * 1000;
+      const timer = setTimeout(() => {
+        dispatch(logout());
+      }, timerDuration);
 
-        const timer = setTimeout(() => {
-          dispatch(logout());
-        }, timerDuration);
-
-        return () => clearTimeout(timer);
-      }
-
-      return () => {};
-    }, [success, dispatch]);
-
-    if (!success) {
-      return <Navigate to="/login" state={{ from: location }} replace />;
+      return () => clearTimeout(timer);
     }
 
-    // eslint-disable-next-line react/jsx-props-no-spreading
-    return <Component {...props} />;
+    return () => {};
+  }, [success, dispatch]);
+
+  if (!success) {
+    return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
-  return AuthComponent;
+  return <Component />;
 }
 
 export default RequireAuth;

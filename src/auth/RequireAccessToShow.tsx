@@ -3,7 +3,7 @@ import { useAppSelector } from "../redux/store";
 import "../Pages/main.scss";
 import { Access } from "../redux/mockAPI/loginUserAPI";
 
-interface RequireAccessToShowProps<P = unknown> {
+interface RequireAccessToShowProps<P extends object> {
   accesName: keyof Access;
   Component: ComponentType<P & React.HTMLProps<HTMLElement>>;
 }

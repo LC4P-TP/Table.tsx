@@ -49,9 +49,7 @@ function MenuBox({ name }: { name: string }) {
         className={`mainButtonStyles ${styles.menuNameButton}`}
         onClick={() => setMenuControl(!menuControl)}
       >
-        {menuControl ? "▲" : "▼"}
-        {" "}
-        {name}
+        {menuControl ? "▲" : "▼"} {name}
       </button>
 
       {menuControl ? (
