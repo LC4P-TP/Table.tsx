@@ -38,16 +38,14 @@ export interface UserApiResponse {
   statusCode: number;
 }
 
-const _getUserData = (): UserApiResponse => {
-  return userData;
-};
+const testGetUserData = (): UserApiResponse => userData;
 
 export function getUserData() {
   return new Promise<UserApiResponse>((resolve, reject) => {
     setTimeout(() => {
-      const userData = _getUserData();
-      if (userData.statusCode === 200) {
-        resolve(userData);
+      const userDataToCheck = testGetUserData();
+      if (userDataToCheck.statusCode === 200) {
+        resolve(userDataToCheck);
       } else {
         reject(new Error("somehting went wrong"));
       }

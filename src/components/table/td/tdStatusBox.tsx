@@ -11,7 +11,7 @@ const StatusBox = ({ status }: { status: StatusType }) => {
   return statusMap[status];
 };
 
-export const TdStatusBox = ({ value }: { value: StatusType }) => {
+export function TdStatusBox({ value }: { value: StatusType }) {
   return (
     <td>
       <div className="boxWrapper">
@@ -19,4 +19,4 @@ export const TdStatusBox = ({ value }: { value: StatusType }) => {
       </div>
     </td>
   );
-};
+}

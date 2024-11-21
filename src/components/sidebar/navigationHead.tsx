@@ -7,7 +7,7 @@ function NavigationHead() {
   return (
     <div className={styles.mainNavigationArea}>
       {buttonsParameters.map((name, index) => (
-        <NavigationButton key={`${name}-${String(index)}`} name={name} customStyle={"mainNavigationButton"} />
+        <NavigationButton key={`${name}-${String(index)}`} name={name} customStyle="mainNavigationButton" />
       ))}
     </div>
   );

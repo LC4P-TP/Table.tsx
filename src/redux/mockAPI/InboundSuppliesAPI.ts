@@ -23,16 +23,14 @@ export interface InboundSupplies {
   updatedQuantity: number;
 }
 
-const _getData = () => {
-  return InboundSuppliesData;
-};
+const inboundSuppliesGetData = () => InboundSuppliesData;
 
 export function getData() {
   return new Promise<GeneralReponse<InboundSupplies>>((resolve, reject) => {
     setTimeout(() => {
-      const InboundSuppliesData = _getData();
-      if (InboundSuppliesData.statusCode === 200) {
-        resolve(InboundSuppliesData);
+      const InboundSuppliesDataToCheck = inboundSuppliesGetData();
+      if (InboundSuppliesDataToCheck.statusCode === 200) {
+        resolve(InboundSuppliesDataToCheck);
       } else {
         reject(new Error("somehting went wrong"));
       }

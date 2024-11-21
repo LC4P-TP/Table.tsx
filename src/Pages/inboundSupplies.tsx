@@ -1,5 +1,5 @@
-import { useAppSelector, useAppDispatch } from "../redux/hooks";
 import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../redux/store";
 import "./main.scss";
 import Table from "../components/table/table";
 import { fetchData, TableDataInboundSupplies } from "../redux/slices/InboundSuppliesSlice";
@@ -7,7 +7,7 @@ import { fetchData, TableDataInboundSupplies } from "../redux/slices/InboundSupp
 function InboundSupplies() {
   const dispatch = useAppDispatch();
 
-  const { data } = useAppSelector((state) => state.InboundSuppliesReducer);
+  const { data } = useAppSelector((state) => state.inboundSupplies);
 
   const tableName = "Inbound supplies";
 

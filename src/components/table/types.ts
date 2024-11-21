@@ -10,7 +10,7 @@ export interface TableEntries {
 
 export interface IdData {
   id: number;
-  [key: string]: any;
+  [key: string]: string | number | boolean;
 }
 
 export type TableProps = {

@@ -10,16 +10,14 @@ export interface TestData {
   row5: number;
 }
 
-const _getData = () => {
-  return testData;
-};
+const testGetData = () => testData;
 
 export function getData() {
   return new Promise<GeneralReponse<TestData>>((resolve, reject) => {
     setTimeout(() => {
-      const testData = _getData();
-      if (testData.statusCode === 200) {
-        resolve(testData);
+      const testDataToCheck = testGetData();
+      if (testDataToCheck.statusCode === 200) {
+        resolve(testDataToCheck);
       } else {
         reject(new Error("somehting went wrong"));
       }

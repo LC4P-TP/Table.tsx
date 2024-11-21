@@ -1,9 +1,9 @@
-import { useAppSelector } from "../../redux/hooks";
+import { useAppSelector } from "../../redux/store";
 import Sidebar from "../../components/sidebar/sidebar";
 import styles from "./header.module.scss";
 
 function Header() {
-  const { success } = useAppSelector((state) => state.userReducer);
+  const { success } = useAppSelector((state) => state.user);
 
   return (
     <div className={styles.header}>

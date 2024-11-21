@@ -1,9 +1,8 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import buttonsMap from "./buttonsMap";
 import styles from "./sidebar.module.scss";
 
-const NavigationButton: React.FC<{ name: string; customStyle: string }> = ({ name, customStyle }) => {
+function NavigationButton({ name, customStyle }: { name: string; customStyle: string }) {
   const navigate = useNavigate();
 
   return (
@@ -15,6 +14,6 @@ const NavigationButton: React.FC<{ name: string; customStyle: string }> = ({ nam
       {name}
     </button>
   );
-};
+}
 
 export default NavigationButton;

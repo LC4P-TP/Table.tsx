@@ -1,6 +1,6 @@
 import "./td.scss";
 
-export const TdCheckBox = ({ value }: { value: boolean }) => {
+export function TdCheckBox({ value }: { value: boolean }) {
   return (
     <td>
       <div className="boxWrapper">
@@ -8,4 +8,4 @@ export const TdCheckBox = ({ value }: { value: boolean }) => {
       </div>
     </td>
   );
-};
+}

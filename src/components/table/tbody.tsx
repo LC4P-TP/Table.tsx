@@ -21,13 +21,7 @@ const RenderCells = ({ obj, tableEntries }: { obj: object; tableEntries: TableEn
   return cells;
 };
 
-export const TBody = <T extends { id: number }>({
-  data,
-  tableEntries,
-}: {
-  data: T[];
-  tableEntries: TableEntries[];
-}) => {
+function TBody<T extends { id: number }>({ data, tableEntries }: { data: T[]; tableEntries: TableEntries[] }) {
   return (
     <tbody>
       {data.map((row) => {
@@ -40,4 +34,6 @@ export const TBody = <T extends { id: number }>({
       })}
     </tbody>
   );
-};
+}
+
+export default TBody;

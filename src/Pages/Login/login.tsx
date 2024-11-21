@@ -1,9 +1,8 @@
 import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { loginUser } from "../../redux/slices/UserSlice/userSlice";
-import "../main.scss";
-import styles from "./login.module.scss";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../redux/store";
+import styles from "./login.module.scss";
+import { loginUser } from "../../redux/slices/UserSlice/userSlice";
 
 function Login() {
   const dispatch = useAppDispatch();
@@ -11,13 +10,13 @@ function Login() {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
-  const { success } = useAppSelector((state) => state.userReducer);
+  const { success } = useAppSelector((state) => state.user);
 
   useEffect(() => {
     if (success) {
       navigate(from, { replace: true });
     }
-  }, [navigate, success]);
+  }, [navigate, success, from]);
 
   const login = () => {
     dispatch(loginUser());

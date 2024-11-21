@@ -1,7 +1,7 @@
 import "./table.scss";
 import { TableEntries } from "./types";
 
-export const THead = ({ tableName, tableEntries }: { tableName: string; tableEntries: TableEntries[] }) => {
+function THead({ tableName, tableEntries }: { tableName: string; tableEntries: TableEntries[] }) {
   return (
     <thead>
       <tr>
@@ -13,4 +13,6 @@ export const THead = ({ tableName, tableEntries }: { tableName: string; tableEnt
       </tr>
     </thead>
   );
-};
+}
+
+export default THead;

@@ -1,6 +1,6 @@
+import { useState } from "react";
 import NavigationButton from "./navigationButton";
 import styles from "./sidebar.module.scss";
-import { useState } from "react";
 
 interface subMenu {
   [key: string]: string[];
@@ -12,9 +12,9 @@ const nameMap: Record<string, block[]> = {
   Logistic: ["Inbound supplies", "asuuiahsdug", { "Logistic settings": ["Home"] }],
 };
 
-const MenuBlock: React.FC<{ subMenu: subMenu }> = ({ subMenu }) => {
+function MenuBlock({ subMenuBlock }: { subMenuBlock: subMenu }) {
   const [subMenuControl, setSubMenuControl] = useState(false);
-  const [[key, value]] = Object.entries(subMenu);
+  const [[key, value]] = Object.entries(subMenuBlock);
 
   return (
     <div className={styles.subMenuBox}>
@@ -23,23 +23,24 @@ const MenuBlock: React.FC<{ subMenu: subMenu }> = ({ subMenu }) => {
         className={`mainButtonStyles ${styles.subMenuName}`}
         onClick={() => setSubMenuControl(!subMenuControl)}
       >
-        {subMenuControl ? "▲" : "▼"} {key}
+        {subMenuControl ? "▲" : "▼"}
+        {key}
       </button>
       {subMenuControl ? (
         <div>
           {value.map((name) => (
-            <NavigationButton key={name} name={name} customStyle={"navigationButton"} />
+            <NavigationButton key={name} name={name} customStyle="navigationButton" />
           ))}
         </div>
       ) : null}
     </div>
   );
-};
+}
 
-const MenuBox: React.FC<{ name: string }> = ({ name }) => {
+function MenuBox({ name }: { name: string }) {
   const [menuControl, setMenuControl] = useState(false);
-  const block = nameMap[name];
-  if (!block) return null;
+  const isBlockExist = nameMap[name];
+  if (!isBlockExist) return null;
 
   return (
     <div>
@@ -48,30 +49,31 @@ const MenuBox: React.FC<{ name: string }> = ({ name }) => {
         className={`mainButtonStyles ${styles.menuNameButton}`}
         onClick={() => setMenuControl(!menuControl)}
       >
-        {menuControl ? "▲" : "▼"} {name}
+        {menuControl ? "▲" : "▼"}
+        {" "}
+        {name}
       </button>
 
       {menuControl ? (
         <div className={styles.menuBox}>
-          {block.map((element, index) => {
+          {isBlockExist.map((element, index) => {
             if (typeof element === "object") {
-              return <MenuBlock key={`submenu-${String(index)}`} subMenu={element} />;
+              return <MenuBlock key={`submenu-${String(index)}`} subMenuBlock={element} />;
             }
-            return <NavigationButton key={element} name={element} customStyle={"navigationButton"} />;
+            return <NavigationButton key={element} name={element} customStyle="navigationButton" />;
           })}
         </div>
       ) : null}
     </div>
   );
-};
+}
 
-const NavigationMenu: React.FC = () => {
+function NavigationMenu() {
   return (
     <div className={styles.navigationButtonsWrapper}>
       <MenuBox name="Logistic" />
-      <NavigationButton name="Test page" customStyle={"menuNameButton"} />
+      <NavigationButton name="Test page" customStyle="menuNameButton" />
     </div>
   );
-};
-
+}
 export default NavigationMenu;

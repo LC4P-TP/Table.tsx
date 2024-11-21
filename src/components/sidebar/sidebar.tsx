@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useAppDispatch } from "../../redux/hooks";
 import styles from "./sidebar.module.scss";
+import { useAppDispatch } from "../../redux/store";
 import NavigationHead from "./navigationHead";
 import NavigationMenu from "./navigationMenu";
 import { logout } from "../../redux/slices/UserSlice/userSlice";

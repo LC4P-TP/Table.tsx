@@ -42,35 +42,31 @@ const initialUserState: UserState = {
   },
 };
 
-const userState = SessionStorageService.get(USER_KEY) || initialUserState;
+const userState: UserState = SessionStorageService.get(USER_KEY) || initialUserState;
 
 export const loginUser = createAsyncThunk("login", async () => getUserData());
 
-const generateState = (userApiResponse: UserApiResponse): UserState => {
-  return {
-    success: userApiResponse.isSuccess,
-    userId: userApiResponse.response.id,
-    isActivated: userApiResponse.response.isActivated,
-    loading: false,
-    department: userApiResponse.response.department,
-    departmentId: userApiResponse.response.departmentId,
-    access: userApiResponse.response.access,
-    error: !userApiResponse.isSuccess
-      ? {
-          status: userApiResponse.statusCode,
-          message: userApiResponse.error || "Unknown error",
-        }
-      : null,
-  };
-};
+const generateState = (userApiResponse: UserApiResponse): UserState => ({
+  success: userApiResponse.isSuccess,
+  userId: userApiResponse.response.id,
+  isActivated: userApiResponse.response.isActivated,
+  loading: false,
+  department: userApiResponse.response.department,
+  departmentId: userApiResponse.response.departmentId,
+  access: userApiResponse.response.access,
+  error: !userApiResponse.isSuccess
+    ? {
+      status: userApiResponse.statusCode,
+      message: userApiResponse.error || "Unknown error",
+    }
+    : null,
+});
 
 const userSlice = createSlice({
   name: "user",
   initialState: userState,
   reducers: {
-    testLogin: (state) => {
-      state.success = true;
-    },
+    testLogin: (state: UserState) => ({ ...state, loading: true }),
     logout: () => {
       SessionStorageService.remove(USER_KEY);
       return initialUserState;
@@ -78,19 +74,16 @@ const userSlice = createSlice({
   },
   extraReducers(builder) {
     builder
-      .addCase(loginUser.pending, (state) => {
-        state.loading = true;
-      })
-      .addCase(loginUser.fulfilled, (state, action: PayloadAction<UserApiResponse>) => {
+      .addCase(loginUser.pending, (state: UserState) => ({ ...state, loading: true }))
+      .addCase(loginUser.fulfilled, (state: UserState, action: PayloadAction<UserApiResponse>) => {
         const newState = generateState(action.payload);
-        Object.assign(state, newState);
 
         SessionStorageService.set(TOKEN_KEY, action.payload.response.token);
         SessionStorageService.set(USER_KEY, newState);
+
+        return { ...state, ...newState };
       })
-      .addCase(loginUser.rejected, (state) => {
-        state.loading = false;
-      });
+      .addCase(loginUser.rejected, (state: UserState) => ({ ...state, loading: false }));
   },
 });
 

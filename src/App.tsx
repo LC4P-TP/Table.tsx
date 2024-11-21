@@ -7,7 +7,7 @@ import Login from "./Pages/Login/login";
 import Home from "./Pages/Home/home";
 import TestPage from "./Pages/testPage";
 import InboundSupplies from "./Pages/inboundSupplies";
-import { RequireAccessToShow } from "./auth/RequireAccess";
+import RequireAccessToShow from "./auth/RequireAccessToShow";
 
 function App() {
   return (
@@ -19,7 +19,11 @@ function App() {
         <Route element={RequireAuth(Outlet)({})}>
           <Route path="/" element={<Home />} />
           <Route path="/TestPage" element={<TestPage />} />
-          <Route path="/InboundSupplies" element={RequireAccessToShow("income", InboundSupplies)({})} />
+
+          <Route
+            path="/InboundSupplies"
+            element={<RequireAccessToShow accesName="income" Component={InboundSupplies} />}
+          />
         </Route>
       </Routes>
       <Footer />
