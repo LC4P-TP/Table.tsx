@@ -6,10 +6,12 @@
   background-size: cover;
 }
 
-.home {
+.midle {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  color: var(--color-title-1);
   font-size: 30px;
+  font-weight: bold;
 }

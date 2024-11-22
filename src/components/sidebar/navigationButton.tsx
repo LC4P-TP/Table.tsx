@@ -1,15 +1,19 @@
 import { useNavigate } from "react-router-dom";
-import buttonsMap from "./buttonsMap";
+import { useAppSelector } from "../../redux/store";
+import { buttonsPathMap } from "./buttonsMaps";
 import styles from "./sidebar.module.scss";
 
 function NavigationButton({ name, customStyle }: { name: string; customStyle: string }) {
   const navigate = useNavigate();
 
+  const { success } = useAppSelector((state) => state.user);
+
   return (
     <button
       type="button"
       className={`mainButtonStyles ${styles[customStyle]}`}
-      onClick={() => navigate(buttonsMap[name])}
+      onClick={() => navigate(buttonsPathMap[name])}
+      disabled={!success}
     >
       {name}
     </button>

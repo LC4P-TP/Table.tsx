@@ -53,9 +53,9 @@ const generateState = (testData: GeneralReponse<InboundSupplies>): InboundSuppli
   },
   error: !testData.isSuccess
     ? {
-        status: testData.statusCode,
-        message: testData.error || "Unknown error",
-      }
+      status: testData.statusCode,
+      message: testData.error || "Unknown error",
+    }
     : null,
 });
 

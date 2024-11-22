@@ -27,9 +27,9 @@ const generateState = (testData: GeneralReponse<TestData>): TestState => ({
   },
   error: !testData.isSuccess
     ? {
-        status: testData.statusCode,
-        message: testData.error || "Unknown error",
-      }
+      status: testData.statusCode,
+      message: testData.error || "Unknown error",
+    }
     : null,
 });
 

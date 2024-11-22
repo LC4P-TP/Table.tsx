@@ -1,5 +1,21 @@
 import { userData } from "../../../tests/testData/testData";
 
+export type AccessType =
+  | "material"
+  | "specification"
+  | "materialSettings"
+  | "setupOrder"
+  | "order"
+  | "orderSettings"
+  | "income"
+  | "consumption"
+  | "stock"
+  | "logisticSettings"
+  | "measurements"
+  | "isManager"
+  | "isHeadOfDepartment"
+  | "isSupervisor";
+
 export interface Access {
   id: number;
   name: string | null;

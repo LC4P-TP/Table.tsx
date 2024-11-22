@@ -4,16 +4,15 @@ import link from "../../../assets/link.png";
 const tFile = "File.file";
 
 const testService = {
-  getFunction: (value: string) =>
-    new Promise<string>((resolve, reject) => {
-      setTimeout(() => {
-        if (typeof value === "string") {
-          resolve(tFile);
-        } else {
-          reject(new Error("somehting went wrong"));
-        }
-      }, 1000);
-    }),
+  getFunction: (value: string) => new Promise<string>((resolve, reject) => {
+    setTimeout(() => {
+      if (typeof value === "string") {
+        resolve(tFile);
+      } else {
+        reject(new Error("somehting went wrong"));
+      }
+    }, 1000);
+  }),
 };
 
 const getFile = async (value: string) => {

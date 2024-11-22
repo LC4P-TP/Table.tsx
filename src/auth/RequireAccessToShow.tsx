@@ -3,15 +3,15 @@ import { useAppSelector } from "../redux/store";
 import "../Pages/main.scss";
 import { Access } from "../redux/mockAPI/loginUserAPI";
 
-interface RequireAccessToShowProps<P extends object> {
+interface RequireaccessToShowProps<P extends object> {
   accesName: keyof Access;
   Component: ComponentType<P & React.HTMLProps<HTMLElement>>;
 }
 
-function RequireAccessToShow<P extends JSX.IntrinsicAttributes>({
+function RequireaccessToShow<P extends JSX.IntrinsicAttributes>({
   accesName,
   Component,
-}: RequireAccessToShowProps<P>): React.ReactElement | null {
+}: RequireaccessToShowProps<P>): React.ReactElement | null {
   const { access } = useAppSelector((state) => state.user);
 
   const hasAccess = useMemo(() => {
@@ -27,4 +27,4 @@ function RequireAccessToShow<P extends JSX.IntrinsicAttributes>({
   return null;
 }
 
-export default RequireAccessToShow;
+export default RequireaccessToShow;
