@@ -16,7 +16,7 @@ const initialState: TestState = {
   error: { status: 0, message: "" },
 };
 
-export const fetchData = createAsyncThunk("testData/fetchData", async () => getData());
+export const fetchTestData = createAsyncThunk("testData/fetchTestData", async () => getData());
 
 const generateState = (testData: GeneralReponse<TestData>): TestState => ({
   loading: false,
@@ -27,9 +27,9 @@ const generateState = (testData: GeneralReponse<TestData>): TestState => ({
   },
   error: !testData.isSuccess
     ? {
-      status: testData.statusCode,
-      message: testData.error || "Unknown error",
-    }
+        status: testData.statusCode,
+        message: testData.error || "Unknown error",
+      }
     : null,
 });
 
@@ -39,12 +39,12 @@ export const testSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder
-      .addCase(fetchData.pending, (state: TestState) => ({ ...state, loading: true }))
-      .addCase(fetchData.fulfilled, (state, action: PayloadAction<GeneralReponse<TestData>>) => {
+      .addCase(fetchTestData.pending, (state: TestState) => ({ ...state, loading: true }))
+      .addCase(fetchTestData.fulfilled, (state, action: PayloadAction<GeneralReponse<TestData>>) => {
         const newState = generateState(action.payload);
         Object.assign(state, newState);
       })
-      .addCase(fetchData.rejected, (state: TestState) => ({ ...state, loading: false }));
+      .addCase(fetchTestData.rejected, (state: TestState) => ({ ...state, loading: false }));
   },
 });
 

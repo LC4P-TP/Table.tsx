@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../redux/store";
 import "./main.scss";
 import Table from "../components/table/table";
-import { fetchData } from "../redux/slices/TestPageSlice/testPageSlice";
+import { fetchTestData } from "../redux/slices/TestPageSlice/testPageSlice";
 import { IdData } from "../components/table/types";
 
 function TestPage() {
@@ -17,7 +17,7 @@ function TestPage() {
   const tableName = "Test page";
 
   useEffect(() => {
-    dispatch(fetchData());
+    dispatch(fetchTestData());
   }, [dispatch]);
 
   return (

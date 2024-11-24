@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../redux/store";
 import "./main.scss";
 import Table from "../components/table/table";
-import { fetchData } from "../redux/slices/InboundSuppliesSlice";
+import { fetchInboundSuppliesData } from "../redux/slices/InboundSuppliesSlice";
 import { IdData } from "../components/table/types";
 
 function InboundSupplies() {
@@ -17,7 +17,7 @@ function InboundSupplies() {
   const tableName = "Inbound supplies";
 
   useEffect(() => {
-    dispatch(fetchData());
+    dispatch(fetchInboundSuppliesData());
   }, [dispatch]);
 
   return (

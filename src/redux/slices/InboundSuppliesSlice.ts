@@ -30,7 +30,7 @@ const initialState: InboundSuppliesState = {
   error: { status: 0, message: "" },
 };
 
-export const fetchData = createAsyncThunk("testData/fetchData", async () => getData());
+export const fetchInboundSuppliesData = createAsyncThunk("testData/fetchInboundSuppliesData", async () => getData());
 
 const generateState = (testData: GeneralReponse<InboundSupplies>): InboundSuppliesState => ({
   loading: false,
@@ -65,12 +65,12 @@ export const InboundSuppliesSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder
-      .addCase(fetchData.pending, (state: InboundSuppliesState) => ({ ...state, loading: true }))
-      .addCase(fetchData.fulfilled, (state, action: PayloadAction<GeneralReponse<InboundSupplies>>) => {
+      .addCase(fetchInboundSuppliesData.pending, (state: InboundSuppliesState) => ({ ...state, loading: true }))
+      .addCase(fetchInboundSuppliesData.fulfilled, (state, action: PayloadAction<GeneralReponse<InboundSupplies>>) => {
         const newState = generateState(action.payload);
         Object.assign(state, newState);
       })
-      .addCase(fetchData.rejected, (state: InboundSuppliesState) => ({ ...state, loading: false }));
+      .addCase(fetchInboundSuppliesData.rejected, (state: InboundSuppliesState) => ({ ...state, loading: false }));
   },
 });
 
