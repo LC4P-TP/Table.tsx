@@ -1,5 +1,5 @@
 import styles from "./sidebar.module.scss";
-import NavigationButton from "./navigationButton";
+import { NavigationButton } from "./navigationButton";
 
 function NavigationHead() {
   const buttonsParameters = ["Home", "Personal account"];

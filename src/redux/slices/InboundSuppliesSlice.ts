@@ -53,9 +53,9 @@ const generateState = (testData: GeneralReponse<InboundSupplies>): InboundSuppli
   },
   error: !testData.isSuccess
     ? {
-      status: testData.statusCode,
-      message: testData.error || "Unknown error",
-    }
+        status: testData.statusCode,
+        message: testData.error || "Unknown error",
+      }
     : null,
 });
 
@@ -65,12 +65,18 @@ export const InboundSuppliesSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder
-      .addCase(fetchInboundSuppliesData.pending, (state: InboundSuppliesState) => ({ ...state, loading: true }))
+      .addCase(fetchInboundSuppliesData.pending, (state: InboundSuppliesState) => ({
+        ...state,
+        loading: true,
+      }))
       .addCase(fetchInboundSuppliesData.fulfilled, (state, action: PayloadAction<GeneralReponse<InboundSupplies>>) => {
         const newState = generateState(action.payload);
         Object.assign(state, newState);
       })
-      .addCase(fetchInboundSuppliesData.rejected, (state: InboundSuppliesState) => ({ ...state, loading: false }));
+      .addCase(fetchInboundSuppliesData.rejected, (state: InboundSuppliesState) => ({
+        ...state,
+        loading: false,
+      }));
   },
 });
 

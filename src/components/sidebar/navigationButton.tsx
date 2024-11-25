@@ -1,9 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../redux/store";
-import { buttonsPathMap } from "./buttonsMaps";
 import styles from "./sidebar.module.scss";
+import { buttonsAccessMap, buttonsPathMap } from "./buttonsMaps";
+import { Access } from "../../redux/mockAPI/loginUserAPI";
+import { accessToShow } from "../../auth/RequireAccess";
 
-function NavigationButton({ name, customStyle }: { name: string; customStyle: string }) {
+export function NavigationButton({ name, customStyle }: { name: string; customStyle: string }) {
   const navigate = useNavigate();
 
   const { success } = useAppSelector((state) => state.user);
@@ -20,4 +22,8 @@ function NavigationButton({ name, customStyle }: { name: string; customStyle: st
   );
 }
 
-export default NavigationButton;
+export function PermissionToNavigationButton({ name, access }: { name: string; access: Access }) {
+  return accessToShow(buttonsAccessMap[name], access) ? (
+    <NavigationButton key={name} name={name} customStyle="navigationButton" />
+  ) : null;
+}

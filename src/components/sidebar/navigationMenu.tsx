@@ -1,25 +1,23 @@
 import { useState } from "react";
-import NavigationButton from "./navigationButton";
+import { NavigationButton, PermissionToNavigationButton } from "./navigationButton";
 import styles from "./sidebar.module.scss";
 import { buttonsAccessMap, buttonsMap, subMenu } from "./buttonsMaps";
 import { accessToShow } from "../../auth/RequireAccess";
 import { useAppSelector } from "../../redux/store";
 import { Access } from "../../redux/mockAPI/loginUserAPI";
 
-function SubMenu({ subMenuBlock }: { subMenuBlock: subMenu }) {
+function SubMenu({ subMenuBlock, access }: { subMenuBlock: subMenu; access: Access }) {
   const [subMenuControl, setSubMenuControl] = useState(false);
   const [[key, value]] = Object.entries(subMenuBlock);
 
-  return (
+  return accessToShow(buttonsAccessMap[key], access) ? (
     <div className={styles.subMenuBox}>
       <button
         type="button"
         className={`mainButtonStyles ${styles.subMenuName}`}
         onClick={() => setSubMenuControl(!subMenuControl)}
       >
-        {subMenuControl ? "▲" : "▼"}
-        {" "}
-        {key}
+        {subMenuControl ? "▲" : "▼"} {key}
       </button>
       {subMenuControl ? (
         <div className={styles.SubMenuBlock}>
@@ -29,11 +27,12 @@ function SubMenu({ subMenuBlock }: { subMenuBlock: subMenu }) {
         </div>
       ) : null}
     </div>
-  );
+  ) : null;
 }
 
 function MenuBox({ name, access }: { name: string; access: Access }) {
   const [menuControl, setMenuControl] = useState(false);
+  
   const isBlockExist = buttonsMap[name];
   if (!isBlockExist) return null;
 
@@ -47,42 +46,35 @@ function MenuBox({ name, access }: { name: string; access: Access }) {
 
   const generalPermission = permissionsByName.some((val) => val === true);
 
-  if (!generalPermission) {
-    return null;
-  }
-
-  return (
-    <div>
+  return generalPermission ? (
+    <div className={styles.MenuBox}>
       <button
         type="button"
         className={`mainButtonStyles ${styles.menuNameButton}`}
         onClick={() => setMenuControl(!menuControl)}
       >
-        {menuControl ? "▲" : "▼"}
-        {" "}
-        {name}
+        {menuControl ? "▲" : "▼"} {name}
       </button>
 
       {menuControl ? (
         <div className={styles.menuBox}>
           {isBlockExist.map((element, index) => {
             if (typeof element === "object") {
-              const key = Object.keys(element)[0];
-              if (!accessToShow(buttonsAccessMap[key], access)) {
-                return null;
-              }
-              return <SubMenu key={`submenu-${String(index)}`} subMenuBlock={element} />;
+              return <SubMenu key={`${name}-submenu-${String(index)}`} subMenuBlock={element} access={access} />;
             }
 
-            if (!accessToShow(buttonsAccessMap[element], access)) {
-              return null;
-            }
-            return <NavigationButton key={element} name={element} customStyle="navigationButton" />;
+            return (
+              <PermissionToNavigationButton
+                key={`${name}-menuButton-${String(index)}`}
+                name={element}
+                access={access}
+              />
+            );
           })}
         </div>
       ) : null}
     </div>
-  );
+  ) : null;
 }
 
 function NavigationMenu() {

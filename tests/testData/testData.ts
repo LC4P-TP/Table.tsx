@@ -4,8 +4,7 @@ export const userData = {
     name: "Name",
     surname: "Surname",
     isActivated: true,
-    token:
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibmFtZSIsIm5hbWVpZCI6IjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMSIsImp0aSI6IjJjZjM1NWUzLTE3NjEtNDI4ZC05MjA1LWUyMDA0ODBjMjcwYSIsIkFjY2Vzc0tleSI6Ik1pY3Jvc29mdC5JZGVudGl0eU1vZGVsLlRva2Vucy5TeW1tZXRyaWNTZWN1cml0eUtleSwgS2V5SWQ6ICcnLCBJbnRlcm5hbElkOiAnaEJ6V3A3UkR4czZ3dk5aY3g0QWtDeFJmYjZPanFhY0VBODV3djRjemV1bycuIiwiZXhwIjoxNzMxNTE3NzM2LCJpc3MiOiJlZWVlZWVlZSIsImF1ZCI6ImVlZWVlZWVlIn0.C4gtGClZglERQ-ZnbUkwTn9nvKa8UFryTPKfbBVMWOM",
+    token: "",
     access: {
       id: 0,
       name: null,
@@ -24,11 +23,10 @@ export const userData = {
       isSupervisor: false,
       isManager: 15,
     },
-    id: "00000000-0000-0000-0000-000000000001",
-    notificationToken:
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibmFtZSIsIm5hbWVpZCI6IjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMSIsImp0aSI6IjIyNzViYzNlLWFiNTUtNDZmMC04ODRkLTlmOTFjMjFjNGQxNCIsIkFjY2Vzc0tleSI6Ik1pY3Jvc29mdC5JZGVudGl0eU1vZGVsLlRva2Vucy5TeW1tZXRyaWNTZWN1cml0eUtleSwgS2V5SWQ6ICcnLCBJbnRlcm5hbElkOiAnaEJ6V3A3UkR4czZ3dk5aY3g0QWtDeFJmYjZPanFhY0VBODV3djRjemV1bycuIiwiZXhwIjoxNzMxNTE3NzM2LCJpc3MiOiJlZWVlZWVlZSIsImF1ZCI6ImVlZWVlZWVlIn0.fAVx0elrVozzttCBStydjMnfHdnPwBXQIzVdHiAqGFs",
+    id: "00000000-0000-0000-0000-000000000000",
+    notificationToken: "",
     departmentId: 1,
-    department: "Spectrographika",
+    department: "First",
   },
   error: null,
   statusCode: 200,
