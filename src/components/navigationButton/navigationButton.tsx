@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../redux/store";
-import styles from "./sidebar.module.scss";
-import { buttonsAccessMap, buttonsPathMap } from "./buttonsMaps";
+import styles from "./navigationButton.module.scss";
+import { buttonsAccessMap, buttonsPathMap } from "../sidebar/buttonsMaps";
 import { Access } from "../../redux/mockAPI/loginUserAPI";
 import { accessToShow } from "../../auth/RequireAccess";
 

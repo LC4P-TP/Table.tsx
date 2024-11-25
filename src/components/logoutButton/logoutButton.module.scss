@@ -1,0 +1,32 @@
+.logoutButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 0 10px;
+  background-color: transparent;
+
+  .imgBox {
+    display: flex;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border: 1px solid var(--color-title-2);
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .title {
+    margin-left: 10px;
+    color: var(--color-title-2);
+    font-weight: bold;
+  }
+
+  &:hover {
+    .imgBox {
+      background-color: var(--color-title-2);
+    }
+  }
+}

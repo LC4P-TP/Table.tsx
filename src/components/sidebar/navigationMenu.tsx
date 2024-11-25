@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavigationButton, PermissionToNavigationButton } from "./navigationButton";
+import { NavigationButton, PermissionToNavigationButton } from "../navigationButton/navigationButton";
 import styles from "./sidebar.module.scss";
 import { buttonsAccessMap, buttonsMap, subMenu } from "./buttonsMaps";
 import { accessToShow } from "../../auth/RequireAccess";
@@ -32,7 +32,7 @@ function SubMenu({ subMenuBlock, access }: { subMenuBlock: subMenu; access: Acce
 
 function MenuBox({ name, access }: { name: string; access: Access }) {
   const [menuControl, setMenuControl] = useState(false);
-  
+
   const isBlockExist = buttonsMap[name];
   if (!isBlockExist) return null;
 

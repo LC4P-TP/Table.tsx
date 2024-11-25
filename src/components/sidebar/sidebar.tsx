@@ -1,20 +1,12 @@
 import React, { useState } from "react";
 import styles from "./sidebar.module.scss";
-import { useAppDispatch } from "../../redux/store";
 import NavigationHead from "./navigationHead";
 import NavigationMenu from "./navigationMenu";
-import { logout } from "../../redux/slices/UserSlice/userSlice";
 
 function Sidebar(): React.ReactElement {
-  const dispatch = useAppDispatch();
-
   const [sidebsrState, setSidebarState] = useState(true);
 
   const handleSideBar = () => setSidebarState(!sidebsrState);
-
-  const handleLoout = () => {
-    dispatch(logout());
-  };
 
   return (
     <div className={styles.sidebarWrapper}>
@@ -36,12 +28,6 @@ function Sidebar(): React.ReactElement {
 
         <div className={styles.body}>
           <NavigationMenu />
-        </div>
-
-        <div className={styles.foot}>
-          <button type="submit" className={`mainButtonStyles ${styles.logout}`} onClick={handleLoout}>
-            Logout
-          </button>
         </div>
       </div>
     </div>
