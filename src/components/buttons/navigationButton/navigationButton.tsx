@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import { useAppSelector } from "../../redux/store";
+import { useAppSelector } from "../../../redux/store";
 import styles from "./navigationButton.module.scss";
-import { buttonsAccessMap, buttonsPathMap } from "../sidebar/buttonsMaps";
-import { Access } from "../../redux/mockAPI/loginUserAPI";
-import { accessToShow } from "../../auth/RequireAccess";
+import { buttonsAccessMap, buttonsPathMap } from "../../sidebar/buttonsMaps";
+import { Access } from "../../../services/mockAPI/loginUserAPI";
+import { accessToShow } from "../../../auth/RequireAccess";
 
 export function NavigationButton({ name, customStyle }: { name: string; customStyle: string }) {
   const navigate = useNavigate();

@@ -1,7 +1,7 @@
 import React, { ComponentType, useMemo, JSX } from "react";
 import { useAppSelector } from "../redux/store";
 import "../Pages/main.scss";
-import { Access } from "../redux/mockAPI/loginUserAPI";
+import { Access } from "../services/mockAPI/loginUserAPI";
 
 interface RequireaccessToShowProps<P extends object> {
   accesName: keyof Access;

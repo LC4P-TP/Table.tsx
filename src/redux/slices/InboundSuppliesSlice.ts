@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { InboundSupplies, getData } from "../mockAPI/InboundSuppliesAPI";
+import { InboundSupplies, getData } from "../../services/mockAPI/InboundSuppliesAPI";
 import { error, GeneralReponse } from "./GeneralSliceTypes/generalSliceTypes";
 
 export interface TableDataInboundSupplies {

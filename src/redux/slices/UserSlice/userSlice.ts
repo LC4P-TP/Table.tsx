@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Access, getUserData, UserApiResponse } from "../../mockAPI/loginUserAPI";
+import { Access, getUserData, UserApiResponse } from "../../../services/mockAPI/loginUserAPI";
 import { error } from "../GeneralSliceTypes/generalSliceTypes";
-import { SessionStorageService, TOKEN_KEY, USER_KEY } from "../../mockAPI/SessionStorageService";
+import { SessionStorageService, TOKEN_KEY, USER_KEY } from "../../../services/SessionStorageService";
 
 export interface UserState {
   success: boolean;

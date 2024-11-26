@@ -1,5 +1,5 @@
 import { testData } from "../../../tests/testData/testData";
-import { GeneralReponse } from "../slices/GeneralSliceTypes/generalSliceTypes";
+import { GeneralReponse } from "../../redux/slices/GeneralSliceTypes/generalSliceTypes";
 
 export interface TestData {
   id: number;

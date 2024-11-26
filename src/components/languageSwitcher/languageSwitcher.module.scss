@@ -1,0 +1,95 @@
+.languageSwitcher {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  .mainButtonBox {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+  }
+
+  .languagesList {
+    position: absolute;
+    right: 200px;
+    width: 150px;
+
+    display: flex;
+    flex-direction: column;
+
+    height: fit-content;
+    max-height: 150px;
+    padding: 5px 0 5px 5px;
+    background-color: var(--color-title-1);
+
+    .buttonBox {
+      .languageButton {
+        img {
+          width: 35px;
+          height: 35px;
+        }
+      }
+    }
+  }
+
+  .showLanguagesList {
+    display: none;
+  }
+
+  .mainButtonBox,
+  .languagesList {
+    .buttonBox {
+      display: flex;
+      justify-content: left;
+      align-items: center;
+
+      .languageButton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: fit-content;
+        height: fit-content;
+
+        border: none;
+        background-color: transparent;
+
+        .imgBox {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 40px;
+          height: 40px;
+
+          img {
+            width: 35px;
+            height: 35px;
+            color: var(--color-title-2);
+          }
+        }
+
+        .title {
+          margin-left: 10px;
+          padding: 5px;
+          color: var(--color-title-2);
+          font-weight: bold;
+        }
+
+        &:hover {
+          .imgBox {
+            border: 1px solid var(--color-title-2);
+          }
+
+          .title {
+            background-color: var(--color-title-hover);
+            color: var(--color-text);
+          }
+        }
+      }
+    }
+  }
+}

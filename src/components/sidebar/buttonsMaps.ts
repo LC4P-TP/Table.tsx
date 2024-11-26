@@ -1,4 +1,4 @@
-import { AccessType } from "../../redux/mockAPI/loginUserAPI";
+import { AccessType } from "../../services/mockAPI/loginUserAPI";
 
 export interface subMenu {
   [key: string]: string[];

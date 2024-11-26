@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { TestData, getData } from "../../mockAPI/testAPI";
+import { TestData, getData } from "../../../services/mockAPI/testAPI";
 import { error, GeneralReponse } from "../GeneralSliceTypes/generalSliceTypes";
 
 interface TestState {

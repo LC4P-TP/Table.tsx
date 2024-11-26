@@ -1,4 +1,4 @@
-import { Access, AccessType } from "../redux/mockAPI/loginUserAPI";
+import { Access, AccessType } from "../services/mockAPI/loginUserAPI";
 
 export const accessToWrite = (accesName: AccessType, access: Access) => access[accesName] === 15;
 

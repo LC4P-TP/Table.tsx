@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { NavigationButton, PermissionToNavigationButton } from "../navigationButton/navigationButton";
+import { NavigationButton, PermissionToNavigationButton } from "../buttons/navigationButton/navigationButton";
 import styles from "./sidebar.module.scss";
 import { buttonsAccessMap, buttonsMap, subMenu } from "./buttonsMaps";
 import { accessToShow } from "../../auth/RequireAccess";
 import { useAppSelector } from "../../redux/store";
-import { Access } from "../../redux/mockAPI/loginUserAPI";
+import { Access } from "../../services/mockAPI/loginUserAPI";
 
 function SubMenu({ subMenuBlock, access }: { subMenuBlock: subMenu; access: Access }) {
   const [subMenuControl, setSubMenuControl] = useState(false);

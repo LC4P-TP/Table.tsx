@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useAppSelector } from "../../redux/store";
 import styles from "./settingsMenu.module.scss";
-import { NavigationButton } from "../navigationButton/navigationButton";
-import LogoutButton from "../logoutButton/logoutButton";
+import LogoutButton from "../buttons/logoutButton/logoutButton";
+import LanguageSwitcher from "../languageSwitcher/languageSwitcher";
+import PedsonalAccountButtton from "../buttons/persAccountButton/persAccountButton";
 
 function Gear() {
   return (
@@ -22,6 +24,8 @@ function Gear() {
 }
 
 function SettingsMenu() {
+  const { success } = useAppSelector((state) => state.user);
+
   const [menuState, setMenuState] = useState(true);
 
   const handleSettingsMenu = () => setMenuState(!menuState);
@@ -38,15 +42,21 @@ function SettingsMenu() {
       </button>
 
       <div className={`${styles.menu} ${styles.menuShow} ${menuState ? styles.menuHide : ""}`}>
+        {success ? (
+          <div className={styles.settingsMenuBloc}>
+            <PedsonalAccountButtton />
+          </div>
+        ) : null}
+
         <div className={styles.settingsMenuBloc}>
-          <NavigationButton name="Personal account" customStyle="mainNavigationButton" />
+          <LanguageSwitcher />
         </div>
 
-        <div className={styles.settingsMenuBloc}>language</div>
-
-        <div className={styles.settingsMenuBloc}>
-          <LogoutButton />
-        </div>
+        {success ? (
+          <div className={styles.settingsMenuBloc}>
+            <LogoutButton />
+          </div>
+        ) : null}
       </div>
     </div>
   );
