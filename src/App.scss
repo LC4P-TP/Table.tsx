@@ -1,15 +1,13 @@
 :root {
-  --color-title-1: #074d29;
-  --color-title-2: #f7d476;
-  --color-title-hover: #009949;
+  --color-title-1: #000000;
+  --color-title-2: #00e5ff;
+  --color-title-hover: #0da575;
   --color-title-black-background: #00000080;
 
-  --color-hover-row: #b5fca2ff;
-  --color-current-row: #05ca64;
-  --color-rauschert-orange: #eb8b2d;
+  --color-grren: #18972b;
+  --color-orange: #fc9300;
   --color-error: rgb(211, 52, 52);
   --color-text: #fff;
-  --color-yellow: rgb(217, 217, 28);
   --color-border: rgba(0, 0, 0, 0.6);
 
   --size-heade-height: 50px;
@@ -39,8 +37,8 @@ button {
   color: var(--color-title-2);
 
   &:hover {
-    background-color: var(--color-title-hover);
-    color: var(--color-text);
+    background-color: var(--color-title-2);
+    color: var(--color-title-1);
   }
 }
 
@@ -53,7 +51,7 @@ button {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--color-rauschert-orange);
+  background-color: var(--color-orange);
   &:hover {
     cursor: pointer;
     background-color: var(--color-title-hover);

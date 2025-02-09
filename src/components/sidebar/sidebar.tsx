@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import styles from "./sidebar.module.scss";
 import NavigationHead from "./navigationHead";
 import NavigationMenu from "./navigationMenu";
 
 function Sidebar(): React.ReactElement {
+  const { t } = useTranslation();
+
   const [sidebsrState, setSidebarState] = useState(true);
 
   const handleSideBar = () => setSidebarState(!sidebsrState);
@@ -18,7 +21,7 @@ function Sidebar(): React.ReactElement {
       />
 
       <button type="button" className={`mainButtonStyles ${styles.mainButton}`} onClick={handleSideBar}>
-        ☰
+        {t("Menu")}
       </button>
 
       <div className={`${styles.sidebar} ${styles.sidebarShow} ${sidebsrState ? styles.sidebarHide : ""}`}>

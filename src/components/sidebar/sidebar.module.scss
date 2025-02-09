@@ -3,9 +3,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: var(--size-heade-height);
-    height: var(--size-heade-height);
-    font-size: 30px;
+    width: fit-content;
+    height: 40px;
+    margin-left: 10px;
+    padding: 0 10px;
+    border: 2px solid var(--color-title-2);
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
   }
 
   .blackBackground {
@@ -25,8 +30,8 @@
     transition: 300ms ease-in-out;
 
     &:hover + .mainButton {
-      color: var(--color-text);
-      background-color: var(--color-title-hover);
+      color: var(--color-title-1);
+      background-color: var(--color-title-2);
     }
   }
 

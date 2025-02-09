@@ -9,7 +9,7 @@ function Table({ tableName, data }: TableProps) {
 
   return (
     <div className="tableWrapper">
-      <div className="mainButtonsBox" />
+      <div className="tableName">{tableName}</div>
       <table key={tableName}>
         <THead tableName={tableName} tableEntries={tableEntries} />
         <TBody data={data} tableEntries={tableEntries} />

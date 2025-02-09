@@ -35,22 +35,21 @@
     }
   }
 
-  .greenStatus,
-  .yelouStatus,
-  .redStatus {
+  .status {
     width: var(--size-table-img);
     height: var(--size-table-img);
     margin: 0 10px;
-    border-radius: 100%;
+    border-radius: 10px;
     border: 2px solid var(--color-border);
+    transform: rotate(45deg);
   }
 
   .greenStatus {
-    background-color: var(--color-title-1);
+    background-color: var(--color-grren);
   }
 
   .yelouStatus {
-    background-color: var(--color-yellow);
+    background-color: var(--color-orange);
   }
 
   .redStatus {
@@ -65,8 +64,8 @@
     background-color: transparent;
 
     &:hover {
-      border: 2px solid var(--color-rauschert-orange);
-      border-radius: 100%;
+      border: 3px solid var(--color-orange);
+      border-radius: 10px;
     }
 
     img {
