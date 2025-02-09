@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { TestData, getData } from "../../../services/mockAPI/testAPI";
-import { error, GeneralReponse } from "../GeneralSliceTypes/generalSliceTypes";
+import { TestData, getData } from "../../services/mockAPI/testAPI";
+import { error, GeneralReponse } from "./GeneralSliceTypes/generalSliceTypes";
 
 interface TestState {
   loading: boolean;
@@ -27,9 +27,9 @@ const generateState = (testData: GeneralReponse<TestData>): TestState => ({
   },
   error: !testData.isSuccess
     ? {
-        status: testData.statusCode,
-        message: testData.error || "Unknown error",
-      }
+      status: testData.statusCode,
+      message: testData.error || "Unknown error",
+    }
     : null,
 });
 

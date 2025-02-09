@@ -14,9 +14,7 @@ function Header() {
         <h3>T i t l e</h3>
       </div>
 
-      <div className={styles.right}>
-        <SettingsMenu />
-      </div>
+      <div className={styles.right}>{success ? <SettingsMenu /> : null}</div>
     </div>
   );
 }

@@ -8,9 +8,11 @@ export interface TableEntries {
   columnTirle: string;
 }
 
+type InnerArray = string[] | number[] | boolean[] | object[];
+
 export interface IdData {
   id: number;
-  [key: string]: string | number | boolean | object | [];
+  [key: string]: string | number | boolean | object | InnerArray;
 }
 
 export type TableProps = {

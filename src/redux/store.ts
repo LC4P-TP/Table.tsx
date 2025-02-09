@@ -1,14 +1,16 @@
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "./slices/UserSlice/userSlice";
-import testReducer from "./slices/TestPageSlice/testPageSlice";
-import InboundSuppliesReducer from "./slices/InboundSuppliesSlice";
+import testReducer from "./slices/testPageSlice";
+import TestPageMenuReducer from "./slices/TestPageMenuSlice";
+import TestPageSubMenuReducer from "./slices/TestPageSubMenuSlice";
 
 export const store = configureStore({
   reducer: {
-    user: userReducer, // Має бути "user", а не "userReducer"
+    user: userReducer,
     test: testReducer,
-    inboundSupplies: InboundSuppliesReducer,
+    testPageMenu: TestPageMenuReducer,
+    testPageSubMenu: TestPageSubMenuReducer,
   },
 });
 

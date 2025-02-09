@@ -1,7 +1,8 @@
 import { testData } from "../../../tests/testData/testData";
+import { IdData } from "../../components/table/types";
 import { GeneralReponse } from "../../redux/slices/GeneralSliceTypes/generalSliceTypes";
 
-export interface TestData {
+export interface TestData extends IdData {
   id: number;
   row1: string;
   row2: string;

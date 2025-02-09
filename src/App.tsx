@@ -11,7 +11,8 @@ import Home from "./Pages/Home/home";
 import Default from "./Pages/Default";
 import TestPage from "./Pages/testPage";
 
-import InboundSupplies from "./Pages/inboundSupplies";
+import TestPageMenu from "./Pages/TestPageMenu/testPageMenu";
+import TestPageSubMenu from "./Pages/TestPageMenu/testPageSubMenu";
 
 function App() {
   return (
@@ -22,10 +23,14 @@ function App() {
 
         <Route element={<RequireAuth Component={Outlet} />}>
           <Route path="/" element={<Home />} />
-          <Route path="/TestPage" element={<RequireAccessToShow accesName="measurements" Component={TestPage} />} />
+          <Route path="/testPage" element={<RequireAccessToShow accesName="testPage" Component={TestPage} />} />
           <Route
-            path="/InboundSupplies"
-            element={<RequireAccessToShow accesName="income" Component={InboundSupplies} />}
+            path="/testPageMenu"
+            element={<RequireAccessToShow accesName="testPageMenu" Component={TestPageMenu} />}
+          />
+          <Route
+            path="/testPageSubMenu"
+            element={<RequireAccessToShow accesName="testPageSubMenu" Component={TestPageSubMenu} />}
           />
 
           <Route path="/*" element={<Default />} />

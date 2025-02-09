@@ -16,7 +16,7 @@ function RequireaccessToShow<P extends JSX.IntrinsicAttributes>({
 
   const hasAccess = useMemo(() => {
     const key: keyof Access = accesName;
-    return access[key] === 15 || access[key] === 4;
+    return access[key];
   }, [accesName, access]);
 
   if (hasAccess) {

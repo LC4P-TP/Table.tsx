@@ -43,3 +43,19 @@ button {
     color: var(--color-text);
   }
 }
+
+::-webkit-scrollbar {
+  background-color: var(--color-title-1);
+}
+
+::-webkit-scrollbar-corner {
+  background-color: var(--color-title-1);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-rauschert-orange);
+  &:hover {
+    cursor: pointer;
+    background-color: var(--color-title-hover);
+  }
+}

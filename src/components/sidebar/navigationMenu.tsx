@@ -2,7 +2,6 @@ import { useState } from "react";
 import { NavigationButton, PermissionToNavigationButton } from "../buttons/navigationButton/navigationButton";
 import styles from "./sidebar.module.scss";
 import { buttonsAccessMap, buttonsMap, subMenu } from "./buttonsMaps";
-import { accessToShow } from "../../auth/RequireAccess";
 import { useAppSelector } from "../../redux/store";
 import { Access } from "../../services/mockAPI/loginUserAPI";
 
@@ -10,14 +9,16 @@ function SubMenu({ subMenuBlock, access }: { subMenuBlock: subMenu; access: Acce
   const [subMenuControl, setSubMenuControl] = useState(false);
   const [[key, value]] = Object.entries(subMenuBlock);
 
-  return accessToShow(buttonsAccessMap[key], access) ? (
+  return access[buttonsAccessMap[key]] ? (
     <div className={styles.subMenuBox}>
       <button
         type="button"
         className={`mainButtonStyles ${styles.subMenuName}`}
         onClick={() => setSubMenuControl(!subMenuControl)}
       >
-        {subMenuControl ? "▲" : "▼"} {key}
+        {subMenuControl ? "▲" : "▼"}
+        {" "}
+        {key}
       </button>
       {subMenuControl ? (
         <div className={styles.SubMenuBlock}>
@@ -39,9 +40,9 @@ function MenuBox({ name, access }: { name: string; access: Access }) {
   const permissionsByName = buttonsMap[name].map((item) => {
     if (typeof item === "object") {
       const key = Object.keys(item)[0];
-      return accessToShow(buttonsAccessMap[key], access);
+      return access[buttonsAccessMap[key]];
     }
-    return accessToShow(buttonsAccessMap[item], access);
+    return access[buttonsAccessMap[item]];
   });
 
   const generalPermission = permissionsByName.some((val) => val === true);
@@ -53,7 +54,9 @@ function MenuBox({ name, access }: { name: string; access: Access }) {
         className={`mainButtonStyles ${styles.menuNameButton}`}
         onClick={() => setMenuControl(!menuControl)}
       >
-        {menuControl ? "▲" : "▼"} {name}
+        {menuControl ? "▲" : "▼"}
+        {" "}
+        {name}
       </button>
 
       {menuControl ? (
@@ -82,8 +85,8 @@ function NavigationMenu() {
 
   return (
     <div className={styles.navigationButtonsWrapper}>
-      <MenuBox name="Logistic" access={access} />
-      {accessToShow("measurements", access) ? <NavigationButton name="Test page" customStyle="menuNameButton" /> : null}
+      {access.testPage ? <NavigationButton name="Test page" customStyle="menuNameButton" /> : null}
+      <MenuBox name="Test Page Menu" access={access} />
     </div>
   );
 }

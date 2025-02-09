@@ -12,16 +12,22 @@ export const tableColumns: Record<string, TableEntries[]> = {
     },
     { cellType: "statusBox", columnName: "statusBox", columnTirle: "" },
   ],
-  "Inbound supplies": [
-    { cellType: "text", columnName: "Article №", columnTirle: "" },
-    { cellType: "text", columnName: "Material", columnTirle: "" },
-    { cellType: "text", columnName: "Received date", columnTirle: "" },
-    { cellType: "text", columnName: "Quantity", columnTirle: "" },
-    { cellType: "text", columnName: "Backlog", columnTirle: "" },
-    { cellType: "checkBox", columnName: "Has sample", columnTirle: "" },
-    { cellType: "text", columnName: "Order number", columnTirle: "" },
-    { cellType: "text", columnName: "Order index", columnTirle: "" },
-    { cellType: "fileURL", columnName: "CMR", columnTirle: "" },
-    { cellType: "text", columnName: "Warehouse", columnTirle: "" },
+  "Test Page Menu": [
+    { cellType: "text", columnName: "Column 1", columnTirle: "" },
+    { cellType: "text", columnName: "Column 2", columnTirle: "" },
+    { cellType: "text", columnName: "Column 3", columnTirle: "" },
+    { cellType: "text", columnName: "Column 4", columnTirle: "" },
+    { cellType: "text", columnName: "Column 5", columnTirle: "" },
+    { cellType: "checkBox", columnName: "Column 6", columnTirle: "" },
+    { cellType: "text", columnName: "Column 7", columnTirle: "" },
+    { cellType: "text", columnName: "Column 8", columnTirle: "" },
+    { cellType: "fileURL", columnName: "Column 9", columnTirle: "" },
+    { cellType: "text", columnName: "Column 10", columnTirle: "" },
+  ],
+
+  "Test Page Sub Menu": [
+    { cellType: "text", columnName: "Column 1", columnTirle: "" },
+    { cellType: "text", columnName: "Column 2", columnTirle: "" },
+    { cellType: "statusBox", columnName: "Column 3", columnTirle: "" },
   ],
 };

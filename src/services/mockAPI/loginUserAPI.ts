@@ -1,49 +1,21 @@
 import { userData } from "../../../tests/testData/testData";
 
-export type AccessType =
-  | "material"
-  | "specification"
-  | "materialSettings"
-  | "setupOrder"
-  | "order"
-  | "orderSettings"
-  | "income"
-  | "consumption"
-  | "stock"
-  | "logisticSettings"
-  | "measurements"
-  | "isManager"
-  | "isHeadOfDepartment"
-  | "isSupervisor";
+export type AccessType = "testPage" | "testPageMenu" | "testPageSubMenu";
 
 export interface Access {
   id: number;
   name: string | null;
-  material: number;
-  specification: number;
-  materialSettings: number;
-  setupOrder: number;
-  order: number;
-  orderSettings: number;
-  income: number;
-  consumption: number;
-  stock: number;
-  logisticSettings: number;
-  measurements: number;
-  isHeadOfDepartment: boolean;
-  isSupervisor: boolean;
-  isManager: number;
+  testPage: boolean;
+  testPageMenu: boolean;
+  testPageSubMenu: boolean;
+  supervisor: boolean;
 }
 
 interface Response {
   name: string;
   surname: string;
-  isActivated: boolean;
   token: string;
   id: string;
-  notificationToken: string;
-  departmentId: number;
-  department: string;
   access: Access;
 }
 
