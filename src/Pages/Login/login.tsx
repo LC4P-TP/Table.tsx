@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import styles from "./login.module.scss";
 import { loginUser } from "../../redux/slices/UserSlice/userSlice";
+import loginIMG from "../../assets/log-in.png";
 
 function Login() {
   const dispatch = useAppDispatch();
@@ -25,12 +26,14 @@ function Login() {
   return (
     <div className="main">
       <div className={styles.loginBox}>
+        <h5 className={styles.text}>Login</h5>
         <input type="text" name="login" />
 
+        <h5 className={styles.text}>Password</h5>
         <input type="password" name="password" />
 
-        <button type="submit" className="mainButtonStyles" onClick={login}>
-          Submit
+        <button type="submit" className={styles.loginButton} onClick={login}>
+          <img src={loginIMG} alt="login" />
         </button>
       </div>
     </div>

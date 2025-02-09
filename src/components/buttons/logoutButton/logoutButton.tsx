@@ -1,7 +1,7 @@
 import { useAppDispatch } from "../../../redux/store";
 import { logout } from "../../../redux/slices/UserSlice/userSlice";
 import styles from "./logoutButton.module.scss";
-import logoutIMG from "../../../assets/logout.png";
+import logoutIMG from "../../../assets/log-out.png";
 
 function LogoutButton() {
   const dispatch = useAppDispatch();
