@@ -27,9 +27,9 @@ const generateState = (testData: GeneralReponse<TestData>): TestState => ({
   },
   error: !testData.isSuccess
     ? {
-      status: testData.statusCode,
-      message: testData.error || "Unknown error",
-    }
+        status: testData.statusCode,
+        message: testData.error || "Unknown error",
+      }
     : null,
 });
 
@@ -39,12 +39,18 @@ export const testSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder
-      .addCase(fetchTestData.pending, (state: TestState) => ({ ...state, loading: true }))
+      .addCase(fetchTestData.pending, (state: TestState) => ({
+        ...state,
+        loading: true,
+      }))
       .addCase(fetchTestData.fulfilled, (state, action: PayloadAction<GeneralReponse<TestData>>) => {
         const newState = generateState(action.payload);
         Object.assign(state, newState);
       })
-      .addCase(fetchTestData.rejected, (state: TestState) => ({ ...state, loading: false }));
+      .addCase(fetchTestData.rejected, (state: TestState) => ({
+        ...state,
+        loading: false,
+      }));
   },
 });
 

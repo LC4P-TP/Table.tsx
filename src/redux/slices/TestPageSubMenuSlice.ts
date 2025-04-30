@@ -40,9 +40,9 @@ const generateState = (testData: GeneralReponse<TestPageSubMenu>): TestPageMenuS
   },
   error: !testData.isSuccess
     ? {
-      status: testData.statusCode,
-      message: testData.error || "Unknown error",
-    }
+        status: testData.statusCode,
+        message: testData.error || "Unknown error",
+      }
     : null,
 });
 

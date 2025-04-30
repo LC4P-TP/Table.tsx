@@ -37,9 +37,9 @@ const generateState = (userApiResponse: UserApiResponse): UserState => ({
   access: userApiResponse.response.access,
   error: !userApiResponse.isSuccess
     ? {
-      status: userApiResponse.statusCode,
-      message: userApiResponse.error || "Unknown error",
-    }
+        status: userApiResponse.statusCode,
+        message: userApiResponse.error || "Unknown error",
+      }
     : null,
 });
 
@@ -55,7 +55,10 @@ const userSlice = createSlice({
   },
   extraReducers(builder) {
     builder
-      .addCase(loginUser.pending, (state: UserState) => ({ ...state, loading: true }))
+      .addCase(loginUser.pending, (state: UserState) => ({
+        ...state,
+        loading: true,
+      }))
       .addCase(loginUser.fulfilled, (state: UserState, action: PayloadAction<UserApiResponse>) => {
         const newState = generateState(action.payload);
 
@@ -64,7 +67,10 @@ const userSlice = createSlice({
 
         return { ...state, ...newState };
       })
-      .addCase(loginUser.rejected, (state: UserState) => ({ ...state, loading: false }));
+      .addCase(loginUser.rejected, (state: UserState) => ({
+        ...state,
+        loading: false,
+      }));
   },
 });
 

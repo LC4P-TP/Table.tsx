@@ -16,9 +16,7 @@ function SubMenu({ subMenuBlock, access }: { subMenuBlock: subMenu; access: Acce
         className={`mainButtonStyles ${styles.subMenuName}`}
         onClick={() => setSubMenuControl(!subMenuControl)}
       >
-        {subMenuControl ? "▲" : "▼"}
-        {" "}
-        {key}
+        {subMenuControl ? "▲" : "▼"} {key}
       </button>
       {subMenuControl ? (
         <div className={styles.SubMenuBlock}>
@@ -54,9 +52,7 @@ function MenuBox({ name, access }: { name: string; access: Access }) {
         className={`mainButtonStyles ${styles.menuNameButton}`}
         onClick={() => setMenuControl(!menuControl)}
       >
-        {menuControl ? "▲" : "▼"}
-        {" "}
-        {name}
+        {menuControl ? "▲" : "▼"} {name}
       </button>
 
       {menuControl ? (

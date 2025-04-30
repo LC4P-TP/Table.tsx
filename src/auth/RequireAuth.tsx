@@ -19,7 +19,7 @@ function RequireAuth({ Component }: { Component: ComponentType }): React.ReactEl
       return () => clearTimeout(timer);
     }
 
-    return () => {};
+    return undefined;
   }, [success, dispatch]);
 
   if (!success) {
